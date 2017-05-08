@@ -1,0 +1,18 @@
+version: '2'
+services:
+  php:
+    image: hudammuhammad/hudaphp
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./app:/var/www/html
+    links:
+      - db
+
+  db:
+    image: eudyanikita/nikitamysql
+    volumes:
+     - ./db:/var/lib/mysql
+    environment:
+     - MYSQL_ROOT_PASSWORD=jusi
